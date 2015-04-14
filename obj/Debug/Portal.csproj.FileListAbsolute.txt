@@ -1,0 +1,6 @@
+C:\Users\w7x64\Google 雲端硬碟\個人作品集\程式專案\科威\code\Portal\Portal\bin\Portal.dll.config
+C:\Users\w7x64\Google 雲端硬碟\個人作品集\程式專案\科威\code\Portal\Portal\bin\Portal.dll
+C:\Users\w7x64\Google 雲端硬碟\個人作品集\程式專案\科威\code\Portal\Portal\bin\Portal.pdb
+C:\Users\w7x64\Google 雲端硬碟\個人作品集\程式專案\科威\code\Portal\Portal\obj\Debug\Portal.csprojResolveAssemblyReference.cache
+C:\Users\w7x64\Google 雲端硬碟\個人作品集\程式專案\科威\code\Portal\Portal\obj\Debug\Portal.dll
+C:\Users\w7x64\Google 雲端硬碟\個人作品集\程式專案\科威\code\Portal\Portal\obj\Debug\Portal.pdb
