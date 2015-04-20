@@ -1,13 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PortalLogin.aspx.cs" Inherits="Portal.PortalLogin" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PortalLogin.aspx.cs" Inherits="PortalLogin" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="robots" content="noindex" />
+<head>    
     <link href="css/login.css" rel="stylesheet" />
     <title>歡迎登入O'PLAY後台管理系统</title>
-    <script type="text/javascript" src="Scripts/jquery-1.11.2.min.js"></script>
+    <!--#include file="PreLoad.inc"-->
 </head>
 <body>
     <div id="c1" class="c1"></div>
