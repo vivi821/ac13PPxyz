@@ -1,10 +1,8 @@
-﻿<%@ page language="C#" autoeventwireup="true" inherits="PortalLogin, App_Web_c1prauhi" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PortalLogin.aspx.cs" Inherits="Portal.PortalLogin" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script type="text/javascript" src="Scripts/jquery-1.11.2.min.js"></script>
+<head>    
     <link href="css/login.css" rel="stylesheet" />
     <title>歡迎登入O'PLAY後台管理系统</title>
     <!--#include file="PreLoad.inc"-->
@@ -21,19 +19,17 @@
         <div class="box">
             <div>
                 <form target="_self" action="PortalLogin.aspx" method="post" id="frm">
-                    <input class="us" name="uid" id="uid" /><br />
-                    <input class="pw" name="pwdd" id="pwdd" /><br />
-                    <input id="hidecode" name="hidecode" type="hidden" value="<%=ecode %>" />
-                    <input id="hidfunc" name="hidfunc" type="hidden" />
-                    <table>
-                        <tr>
-                            <td>
-                                <input type="submit" name="btnsubmit" id="btnsubmit" class="btn" value="登入" />
-                            </td>
-                            <td><a name="a" id="a">忘記密碼？</a></td>
-                        </tr>
-                    </table>
+                    <input class="us" name="usr" id="usr" /><br />
+                    <input class="pw" name="pwd" id="pwd" /><br />
                 </form>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="btn" id="submit">登入</div>
+                        </td>
+                        <td><a>忘記密碼？</a></td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="don">
@@ -41,22 +37,10 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(window).load(function () {
-            document.getElementById("uid").focus();
-            $("#a").click(function () {
-                var uid = $.trim($("#uid").val());
-                if (uid == "") { return false; }
-                $("#hidfunc").val("a");
-                $("#frm").submit();
-            });
-            $("#btnsubmit").click(function () {
-                var uid = $.trim($("#uid").val());
-                var pwd = $.trim($("#pwd").val());
-                if (uid == "" || pwd == "") { return false; }
-                $("#hidfunc").val("s");
-                $("#frm").submit();
-            });
-        });
+        window.onload = function () {
+            document.getElementById("usr").focus();
+            document.getElementById("submit").onclick = function () { document.getElementById("frm").submit(); }
+        }
     </script>
 </body>
 </html>
