@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PortalLogin.aspx.cs" Inherits="PortalLogin" %>
+﻿<%@ page language="C#" autoeventwireup="true" inherits="PortalLogin, App_Web_c1prauhi" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
