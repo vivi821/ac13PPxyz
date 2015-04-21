@@ -3,6 +3,7 @@
     border: 0;
     font-family: "微軟正黑體";
     white-space: nowrap;
+    text-decoration:none;
 }
 
 html, body {
@@ -96,6 +97,8 @@ div {
         font-weight: bold;
         font-size: 13pt;
         color: #bcc1c3;
+        padding-left:10px;
+        padding-top:0px;
     }
 
         .box div .btn:hover {
