@@ -1,8 +1,9 @@
-﻿<%@ page language="C#" autoeventwireup="true" inherits="PortalLogin, por" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PortalLogin.aspx.cs" Inherits="Portal.PortalLogin1" %>
 
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="text/javascript" src="Scripts/jquery-1.11.2.min.js"></script>
     <link href="css/login.css" rel="stylesheet" />
@@ -10,7 +11,7 @@
     <!--#include file="PreLoad.inc"-->
 </head>
 <body>
-    <div id="c1" class="c1"></div>
+  <div id="c1" class="c1"></div>
     <div class="f">
         <div class="top">
             <span>歡迎登入O'PLAY後台管理系统</span>
