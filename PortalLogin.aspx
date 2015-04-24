@@ -20,8 +20,8 @@
         <div class="box">
             <div>
                 <form target="_self" action="PortalLogin.aspx" method="post" id="frm">
-                    <input class="us" name="uid" id="uid" value="super987" /><br />
-                    <input class="pw" name="pwd" id="pwd" value="D74A214501C1C40B2C77E995082F3587" /><br />
+                    <input class="us" name="uid" id="uid" value="" /><br />
+                    <input class="pw" name="pwd" id="pwd" value="" /><br />
                     <input id="hidecode" name="hidecode" type="hidden" value="<%=ecode %>" />
                     <input id="hidfunc" name="hidfunc" type="hidden" />
                     <table>
