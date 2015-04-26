@@ -85,7 +85,7 @@ div {
     }
 
     .box div .btn {
-        padding-left:10px;
+        padding-left: 10px;
         margin-left: 40px;
         width: 111px;
         height: 35px;
@@ -131,3 +131,7 @@ div {
         .don a:hover {
             color: #daecff;
         }
+
+.aspNetHidden {
+    display: none;
+}

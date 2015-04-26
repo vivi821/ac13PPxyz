@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PortalLogin.aspx.cs" Inherits="Portal.PortalLogin1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" EnableViewState="false" CodeBehind="PortalLogin.aspx.cs" Inherits="Portal.PortalLogin1" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,10 +20,11 @@
         </div>
         <div class="box">
             <div>
-                <form target="_self" action="PortalLogin.aspx" method="post" id="frm">
-                    <input class="us" name="uid" id="uid" value="" /><br />
-                    <input class="pw" name="pwd" id="pwd" value="" /><br />
-                    <input id="hidecode" name="hidecode" type="hidden" value="<%=ecode %>" />
+                <form target="_self" action="PortalLogin.aspx" method="post" id="frm" runat="server">
+                    <input type="text" class="us" name="uid" id="uid" value="qsuper987" /><br />
+                    <input type="password" class="pw" name="pwd" id="pwd" value="oplay" /><br />
+                    <asp:HiddenField ID="hidecode"  runat="server" />
+                     <asp:HiddenField ID="hidmsg"  runat="server" />
                     <input id="hidfunc" name="hidfunc" type="hidden" />
                     <table>
                         <tr>
@@ -43,12 +44,14 @@
     <script type="text/javascript">
         $(window).load(function () {
             document.getElementById("uid").focus();
+            /*忘記密碼*/
             $("#a").click(function () {
                 var uid = $.trim($("#uid").val());
                 if (uid == "") { return false; }
                 $("#hidfunc").val("a");
                 $("#frm").submit();
             });
+            /*登入*/
             $("#btnsubmit").click(function () {
                 var uid = $.trim($("#uid").val());
                 var pwd = $.trim($("#pwd").val());
@@ -56,6 +59,9 @@
                 $("#hidfunc").val("s");
                 $("#frm").submit();
             });
+            /*提醒*/
+            var msg = $.trim($("#hidmsg").val());
+            if (msg != "") { alert($("#hidmsg").val()); }
         });
     </script>
 </body>
