@@ -1,4 +1,4 @@
-﻿* {
+﻿.main * {
     font-size: 9pt;
     border: 0;
     font-family: "微軟正黑體";
@@ -20,7 +20,7 @@ body {
     background-position: center top;
 }
 
-div {
+.main div {
     width: 100%;
 }
 
