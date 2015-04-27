@@ -26,7 +26,7 @@
             <div class="box">
                 <div>
                     <form action="PortalLogin.aspx" method="post" id="frm" runat="server">
-                        <input type="text" class="us" name="uid" id="uid" value="" /><br />
+                        <input type="text" class="us" name="uid" id="uid" autocomplete="off" maxlength="10" value="" /><br />
                         <input type="password" class="pw" name="pwd" id="pwd" value="" /><br />
                         <asp:HiddenField ID="hidecode" runat="server" />
                         <asp:HiddenField ID="hidmsg" runat="server" />
