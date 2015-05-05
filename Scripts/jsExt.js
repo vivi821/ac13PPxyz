@@ -47,7 +47,7 @@
 
             });
         },
-        working: function () { return this.each(function () { var str = "執行中…"; $(this).prop("disabled", "disabled").text(str).val(str); }); },
+        working: function () { return this.each(function () { var str = "執行中…"; $(this).prop("disabled", true).text(str).val(str); }); },
         /*按盤時執行click事件*/
         enter: function () { return this.each(function () { $(document).keydown(function (event) { if (event.keyCode == 13) { $(this).click(); } }); }); }
     });
