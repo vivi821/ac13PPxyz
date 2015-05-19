@@ -4,12 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!--#include file="/Models/JsLoad.html"-->
     <link href="css/top.css" rel="stylesheet" />
     <title>O'PLAY管理系統</title>
 </head>
 <body style="background: url(images/topbg.gif) repeat-x;">
-    <form id="frm" runat="server" target="_parent" action="PortalLogin.aspx">
+    <form id="frm" runat="server">
         <div class="topleft">
             <img alt="O'PLAY管理系統" src="images/logo.png" />
         </div>
@@ -25,21 +24,13 @@
             <ul>
                 <li>
                     <div class="user">
-                        <span><%=username %> </span>
+                        <span>王小明 </span>
                         <i>您好</i>
                     </div>
                 </li>
-                <li><a id="btnlogout" href="javascript:void();">登出</a></li>
+                <li><a href="logout.html" target="_parent">登出</a></li>
             </ul>
         </div>
-        <%=json %>
-        <script type="text/javascript">
-            
-            $(window).load(function () {
-                /*登出*/
-                $("#btnlogout").click(function () { $("#frm").submit(); });
-            });
-        </script>
     </form>
 </body>
 </html>
