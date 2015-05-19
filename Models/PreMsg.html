@@ -1,0 +1,8 @@
+﻿<script type="text/javascript">
+	var uiMsg = "";
+	$(window).load(function () {
+		/*提醒*/
+		uiMsg = $.trim($("#<%=this.hidmsg.ClientID %>").val());
+		if (uiMsg != "" && <%=Enable.ToString().ToLower() %>) { $("#divmsg").pop({ "html": uiMsg }); }
+	});
+</script>
