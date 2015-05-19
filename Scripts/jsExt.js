@@ -52,3 +52,5 @@
         enter: function () { return this.each(function () { $(document).keydown(function (event) { if (event.keyCode == 13) { $(this).click(); } }); }); }
     });
 })(jQuery);
+
+function nv() { }

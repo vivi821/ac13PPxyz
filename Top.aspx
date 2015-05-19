@@ -1,36 +1,64 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Top.aspx.cs" Inherits="Portal.Top" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Top.aspx.cs" Inherits="Portal.Top" EnableViewState="False" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--#include file="/Models/JsLoad.html"-->
     <link href="css/top.css" rel="stylesheet" />
     <title>O'PLAY管理系統</title>
 </head>
 <body style="background: url(images/topbg.gif) repeat-x;">
-    <form id="frm" runat="server">
+    <form id="frm" name="frm" runat="server" target="_parent" action="PortalLogin.aspx">
         <div class="topleft">
             <img alt="O'PLAY管理系統" src="images/logo.png" />
         </div>
-        <ul class="nav">
-            <li><a href="RX/RX0000.html" target="rightFrame" class="selected">
-                <h2>旅客系統</h2>
-            </a></li>
-            <li><a href="CX/CX0000.html" target="rightFrame">
-                <h2>管理系統</h2>
-            </a></li>
+        <ul id="nav" class="nav">
         </ul>
         <div class="topright">
             <ul>
                 <li>
                     <div class="user">
-                        <span>王小明 </span>
+                        <span><%=username %> </span>
                         <i>您好</i>
                     </div>
                 </li>
-                <li><a href="logout.html" target="_parent">登出</a></li>
+                <li><a id="btnlogout" href="javascript:nv();">登出</a></li>
             </ul>
         </div>
+        <input type="hidden" id="hidsubmit" name="hidsubmit" />
+        <div id="dvprog" style="display: none;">
+            <%=ProgID %>
+        </div>
     </form>
+    <script type="text/javascript">
+        $(window).load(function () {
+            /*產生列表*/
+            var s = $.trim($("#dvprog").text());
+            if (s != "") {
+                try {
+                    s = $.parseJSON(s);
+                    var nav = $("#nav");
+                    for (var i in s) {
+                        var o = s[i];
+                        nav.append($("<li/>").append($("<a/>", { href: "javascript:nv();", id: o.ProgID })
+                            .html("<h2>" + o.ProgName + "</h2>")
+                            .click(function () {
+                                var t = $(this);
+                                if (!t.hasClass("selected")) {
+                                    nav.find("a").removeClass();
+                                    t.addClass("selected");
+                                    $("#hidsubmit").val($(this)[0].id);
+                                    $("#frm").prop("target", "leftFrame").prop("action", "Left.aspx").submit();
+                                }
+                            })));
+                    }
+                    $("#R00000").click();
+                } catch (e) { }
+            }
+            /*登出*/
+            $("#btnlogout").click(function () { $("#frm").prop("target", "_parent").prop("action", "PortalLogin.aspx").submit(); });
+        });
+    </script>
 </body>
 </html>

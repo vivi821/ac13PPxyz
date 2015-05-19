@@ -72,11 +72,15 @@ body {
     .box .us {
         margin-top: 90px;
         background: url('/images/loginuser.png') no-repeat;
+        width:305px;
+        margin-left:200px;
     }
 
     .box .pw {
         margin-top: 30px;
         background: url('/images/loginpassword.png') no-repeat;
+        [;width:305px;] 
+        [;margin-left:200px;]
     }
 
     .box div table {
