@@ -1,14 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Top.aspx.cs" Inherits="Portal.Top" EnableViewState="False" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Top.aspx.cs" Inherits="Portal.Top" EnableViewState="False" EnableViewStateMac="true" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!--#include file="/Models/JsLoad.html"-->
-    <link href="css/top.css" rel="stylesheet" />
+    <link href="css/top.css" rel="stylesheet" type="text/css" />
     <title>O'PLAY管理系統</title>
 </head>
-<body style="background: url(images/topbg.gif) repeat-x;">
+<body style="background: url(/images/topbg.gif) repeat-x;">
     <form id="frm" name="frm" runat="server" target="_parent" action="PortalLogin.aspx">
         <div class="topleft">
             <img alt="O'PLAY管理系統" src="images/logo.png" />

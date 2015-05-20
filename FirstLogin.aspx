@@ -1,15 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" EnableViewState="false" CodeBehind="FirstLogin.aspx.cs" Inherits="Portal.FirstLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" EnableViewState="false" CodeBehind="FirstLogin.aspx.cs" Inherits="Portal.FirstLogin" EnableViewStateMac="true" %>
 
 <%@ Register Src="~/Models/uiMsg.ascx" TagPrefix="uc1" TagName="uiMsg" %>
 <%@ Register Src="~/Models/uiECode.ascx" TagPrefix="uc1" TagName="uiECode" %>
-
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="css/FirstLogin.css" rel="stylesheet" type="text/css">
+    <link href="/css/FirstLogin.css" rel="stylesheet" type="text/css" />
     <title>歡迎登入O'PLAY後台管理系统</title>
     <!--#include file="/Models/AllLoad.html"-->
 </head>

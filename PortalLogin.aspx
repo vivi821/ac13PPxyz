@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" EnableViewState="false" CodeBehind="PortalLogin.aspx.cs" Inherits="Portal.PortalLogin1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" EnableViewState="false" CodeBehind="PortalLogin.aspx.cs" Inherits="Portal.PortalLogin1" EnableViewStateMac="true" %>
 
 <%@ Register Src="~/Models/uiMsg.ascx" TagPrefix="uc1" TagName="uiMsg" %>
 <%@ Register Src="~/Models/uiECode.ascx" TagPrefix="uc1" TagName="uiECode" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="css/login.css" rel="stylesheet" />
+    <link href="/css/login.css" rel="stylesheet" type="text/css" />
     <title>歡迎登入O'PLAY後台管理系统</title>
     <!--#include file="/Models/AllLoad.html"-->
 </head>
@@ -24,7 +24,7 @@
                 <div>
                     <form method="post" id="frm" runat="server">
                         <input type="text" class="us" name="uid" id="uid" autocomplete="off" maxlength="10" value="<%=hiduid %>" /><br />
-                        <input type="password" class="pw" name="pwd" id="pwd"  maxlength="10" value="" /><br />
+                        <input type="password" class="pw" name="pwd" id="pwd" maxlength="10" value="" /><br />
                         <input id="hidfunc" name="hidfunc" type="hidden" />
                         <uc1:uiMsg runat="server" ID="uiMsg" />
                         <uc1:uiECode runat="server" ID="uiECode" />

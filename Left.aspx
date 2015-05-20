@@ -1,14 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Left.aspx.cs" Inherits="Portal.Left" EnableViewState="False" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Left.aspx.cs" Inherits="Portal.Left" EnableViewState="False" EnableViewStateMac="true" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>O'PLAY管理系統</title>
     <!--#include file="/Models/JsLoad.html"-->
-    <script type="text/javascript" src="Scripts/jsCss.js"></script>
-    <link href="css/left.css" rel="stylesheet" />
+    <script type="/text/javascript" src="Scripts/jsCss.js"></script>
+    <link href="/css/left.css" rel="stylesheet"  type="text/css"/>
 </head>
 <body>
     <form id="frm" runat="server">
@@ -35,49 +34,28 @@
                         var dv = $.grep(s, function (n, i) { return n.PLevel == 2 && n.FatherID == o.SubID; });
                         for (var g in dv) {
                             var x = dv[g];
-                            t.append($("<li/>").append($("<a/>", { href: "#" }).html("<span>" + x.ProgName + "</span>")));
+                            t.append($("<li/>").append($("<a/>", { href: x.url, target: "rightFrame" }).html("<span>" + x.ProgName + "</span>")));
                         }
-                        var ali = $("<li/>", { "class": "has-sub" }).append($("<a/>", { href: "#" }).html("<span>" + o.ProgName + "</span>")).append(t);
-                        ali.click(function () {
-                            //var ot = $('#cssmenu > ul > li > a');
-                            //$('#cssmenu li').removeClass('active');
-                            //$(this).find("li a").slideUp('normal');
-                            //ot.closest('li').addClass('active');
-                            //var checkElement = ot.next();
-                            //if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-                            //    ot.closest('li').removeClass('active');
-                            //    checkElement.slideUp('normal');
-                            //}
-                            //if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-                            //    $('#cssmenu ul ul:visible').slideUp('normal');
-                            //    checkElement.slideDown('normal');
-                            //}
-                            //if (ot.closest('li').find('ul').children().length == 0) {
-                            //    return true;
-                            //} else {
-                            //    return false;
-                            //}
-                        });
-                        nav.append(ali);
+                        nav.append($("<li/>", { "class": "has-sub" }).append($("<a/>", { href: "#" }).html("<span>" + o.ProgName + "</span>")).append(t));
                     }
-                            $('#cssmenu > ul > li > a').click(function () {
-                                $('#cssmenu li').removeClass('active');
-                                $(this).closest('li').addClass('active');
-                                var checkElement = $(this).next();
-                                if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-                                    $(this).closest('li').removeClass('active');
-                                    checkElement.slideUp('normal');
-                                }
-                                if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-                                    $('#cssmenu ul ul:visible').slideUp('normal');
-                                    checkElement.slideDown('normal');
-                                }
-                                if ($(this).closest('li').find('ul').children().length == 0) {
-                                    return true;
-                                } else {
-                                    return false;
-                                }
-                            });
+                    $('#cssmenu > ul > li > a').click(function () {
+                        $('#cssmenu li').removeClass('active');
+                        $(this).closest('li').addClass('active');
+                        var checkElement = $(this).next();
+                        if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+                            $(this).closest('li').removeClass('active');
+                            checkElement.slideUp('normal');
+                        }
+                        if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+                            $('#cssmenu ul ul:visible').slideUp('normal');
+                            checkElement.slideDown('normal');
+                        }
+                        if ($(this).closest('li').find('ul').children().length == 0) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
                 } catch (e) { }
             }
         });
