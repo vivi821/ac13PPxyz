@@ -50,11 +50,7 @@
                             $('#cssmenu ul ul:visible').slideUp('normal');
                             checkElement.slideDown('normal');
                         }
-                        if ($(this).closest('li').find('ul').children().length == 0) {
-                            return true;
-                        } else {
-                            return false;
-                        }
+                        return ($(this).closest('li').find('ul').children().length == 0);
                     });
                 } catch (e) { }
             }

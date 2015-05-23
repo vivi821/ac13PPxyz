@@ -7,10 +7,10 @@
     <title>O'PLAY管理系統</title>
 </head>
 <frameset rows="50,*" cols="*" frameborder="no" border="0" framespacing="0">
-    <frame src="Top.aspx" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+    <frame src="/Top.aspx" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
     <frameset cols="187,*" frameborder="no" border="0" framespacing="0">
-        <frame src="Left.aspx" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
-        <frame src="index.html" name="rightFrame" id="rightFrame" title="rightFrame" />
+        <frame src="/Left.aspx" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
+        <frame src="/RX/R00000.aspx" name="rightFrame" id="rightFrame" title="rightFrame" />
     </frameset>
 </frameset>
 <noframes>

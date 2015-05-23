@@ -31,6 +31,9 @@
             <%=ProgID %>
         </div>
     </form>
+    <form id="frms" name="frms" target="rightFrame" action="/">
+
+    </form>
     <script type="text/javascript">
         $(window).load(function () {
             /*產生列表*/
@@ -41,15 +44,16 @@
                     var nav = $("#nav");
                     for (var i in s) {
                         var o = s[i];
-                        nav.append($("<li/>").append($("<a/>", { href: "javascript:nv();", id: o.ProgID })
+                        nav.append($("<li/>").append($("<a/>", { href: "javascript:nv();", id: o.ProgID, name: o.url })
                             .html("<h2>" + o.ProgName + "</h2>")
                             .click(function () {
                                 var t = $(this);
+                                $("#frms").prop("action", t[0].name).submit();
                                 if (!t.hasClass("selected")) {
                                     nav.find("a").removeClass();
                                     t.addClass("selected");
-                                    $("#hidsubmit").val($(this)[0].id);
-                                    $("#frm").prop("target", "leftFrame").prop("action", "Left.aspx").submit();
+                                    $("#hidsubmit").val(t[0].id);
+                                    $("#frm").prop("target", "leftFrame").prop("action", "Left.aspx").submit();                                   
                                 }
                             })));
                     }

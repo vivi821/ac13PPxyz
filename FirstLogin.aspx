@@ -23,7 +23,7 @@
     <div class="container">
         <br>
         <br>
-        <form method="post" id="frm" runat="server">
+        <form method="post" id="frm" runat="server" target="_self">
             <uc1:uiECode runat="server" ID="uiECode" />
             <uc1:uiMsg runat="server" ID="uiMsg" />
             <asp:HiddenField ID="hidcflag" runat="server" />
@@ -68,7 +68,11 @@
                     pwd: document.getElementById("npw").value,
                     spwd: document.getElementById("epw").value,
                     uid: $("#tduid").text()
-                })) { $(this).working(); return true; }
+                })) {
+                    $(this).working();
+                    $("#frm").submit();
+                    return true;
+                }
                 return false;
             }).enter();
             /*修改成功後*/
