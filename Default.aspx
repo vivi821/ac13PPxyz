@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--#include file="/Models/PreLoad.html"-->
     <title>O'PLAY管理系統</title>
 </head>
 <frameset rows="50,*" cols="*" frameborder="no" border="0" framespacing="0">

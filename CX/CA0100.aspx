@@ -6,13 +6,19 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!--#include file="/Models/AllLoad.html"-->
-    <link type="text/css" href="/css/top.css" rel="stylesheet" />
     <title>O'PLAY管理系統</title>
+    <style type="text/css">
+        div {
+            width: 100%;
+            white-space:nowrap;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <uc1:uiMsg runat="server" ID="uiMsg" />
         <div>
+            
         </div>
     </form>
 </body>

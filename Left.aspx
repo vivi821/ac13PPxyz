@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Left.aspx.cs" Inherits="Portal.Left" EnableViewState="False" EnableViewStateMac="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Left.aspx.cs" Inherits="Portal.Left" EnableViewState="False" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>O'PLAY管理系統</title>
     <!--#include file="/Models/JsLoad.html"-->
-    <script type="/text/javascript" src="Scripts/jsCss.js"></script>
     <link href="/css/left.css" rel="stylesheet"  type="text/css"/>
 </head>
 <body>
