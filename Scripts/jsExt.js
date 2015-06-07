@@ -29,8 +29,13 @@
             if (b2 || b3 || b4 || b5) { $("#divmsg").pop({ "html": "密碼不能為順序字碼!!" }); return false; }
             return true;
         },
+        /*重寫getJSON*/
         getJSONo: function (opts) {
             if ($.isEmptyObject(opts)) { return false; }
+            function a(jqxhr) {
+                if (!$.isEmptyObject(jqxhr)) { $(document.body).append(JSON.stringify(jqxhr)); }
+                else { $(document.body).append(jqxhr.responseText); }
+            }
             var o = $.extend({}, {
                 isdebug: false,
                 success: function (d) { },
@@ -38,15 +43,10 @@
             if ($.isArray(o.target)) { for (var i in o.target) { o.target[i].hide(); } }
             $.getJSON(o.url, o.data, function (data, textStatus, jqXHR) {
                 o.success(data, textStatus, jqXHR);
-                if ($.isArray(o.target)) { for (var i in o.target) { o.target[i].show(); } }            
-            });
-            $(document).ajaxError(function (event, jqxhr, settings, thrownError) {
-                $(document.body).append(request.responseText);
-                //if (settings.url == "ajax/missing.html") {
-                //    $("div.log").text("Triggered ajaxError handler.");
-                //}
-            });
-            if (o.isdebug) { $(document).ajaxComplete(function (event, request, settings) { $(document.body).append(request.responseText); }); }
+                if ($.isArray(o.target)) { for (var i in o.target) { o.target[i].show(); } }
+            })
+                .fail(function (jqxhr) { a(jqxhr); })
+                .always(function (jqxhr) { if (o.isdebug) { a(jqxhr); } });
         }
     });
     $.fn.extend({

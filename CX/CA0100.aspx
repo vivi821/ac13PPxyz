@@ -13,10 +13,9 @@
     <form id="form1" runat="server">
         <uc1:uiMsg runat="server" ID="uiMsg" />
         <div id="dvtit" class="dvtit">
-            <span>使用者ID者：</span><input type="text" size="11" maxlength="10" autocomplete="off" /><select id="usrid"><option value="99">全部</option>
-            </select><input type="button" value="查 詢" id="btnselect" />
+            <span>使用者ID者：</span><input id="txtfind" type="text" size="11" maxlength="10" autocomplete="off" /><select id="usrid"></select><input type="button" value="查 詢" id="btnselect" />
             <br />
-            <input type="button" value="新增使用者" id="btnins" /><input type="button" value="異動使用者資料" id="btnupd" />
+            <input type="button" value="新增使用者" id="btnins" />
         </div>
         <div id="dvins" style="display: none;">
             <table>
@@ -54,7 +53,7 @@
             </table>
         </div>
         <div>
-            <table id="tblist">
+            <table id="tblist" style="display: none;">
                 <tr>
                     <th>序號</th>
                     <th>使用者ID</th>
@@ -74,35 +73,76 @@
     </form>
     <script type="text/javascript">
         $(window).load(function () {
+            function user() {
+                /*使用者大表*/
+                $.getJSONo({
+                    target: [$("#tblist")],
+                    url: '<%=ResolveUrl("~/Ajax/axCA0100Read.ashx") %>',
+                    success: function (d) {
+                        var tb = $("#tblist");
+                        for (var i in d) {
+                            var tr = $("<tr>");
+                            for (var g in d[i]) {
+                                var td = $("<td>").append(d[i][g]);
+                                if ("使用者ID" == g) {
+                                    td.css("cursor", "pointer")
+                                        .prop("id", d[i].使用者ID)
+                                        .click(function () {
+                                            var val = $.trim($(this).text());
+                                            val = $.grep(d, function (n, i) { return n.使用者ID == val; });
+                                            if (val.length) {
+                                                var o = val[0];
+                                                $("#uid").val(o.使用者ID);
+                                                $("#name").val(o.姓名);
+                                                $("#email").val(o.Email);
+                                                $("#deptid option").removeProp("selected")
+                                                    .filter(function (i) { return $.inArray(o.部門別, $.trim($(this).text()).split("-")) > 0; })
+                                                    .prop("selected", true);
+                                                $("#opencode option").removeProp("selected")
+                                                    .filter(function (i) { return o.啓用 == $.trim($(this).text()); })
+                                                    .prop("selected", true);
+                                                $("#btnins").click();
+                                            }
+                                        });
+                                }
+                                tr.append(td);
+                            }
+                            tb.append(tr);
+                        }
+                    }
+                });
+                /*使用者小表*/
+                $.getJSONo({
+                    target: [$("#usrid")],
+                    url: '<%=ResolveUrl("~/Ajax/axXDUserList.ashx") %>',
+                    success: function (d) {
+                        var s = $("#usrid").setdls();
+                        if (!$.isEmptyObject(d)) {
+                            for (var i in d) { s.append($("<option>", { value: d[i].使用者ID }).text(d[i].部門別 + "-" + d[i].姓名)); }
+                            s.change(function () { $("#txtfind").val($(this).find("option:selected").val()); });
+                        }
+                    }
+                });
+            }
+            user();
             /*部門*/
             $.getJSONo({
-                isdebug: true,
                 target: [$("#deptid")],
                 url: '<%=ResolveUrl("~/Ajax/axDept.ashx") %>',
                 success: function (d) {
                     var s = $("#deptid").setdls();
                     if (!$.isEmptyObject(d)) { for (var i in d) { s.append($("<option>", { value: d[i].DeptID }).text(d[i].DeptID + "-" + d[i].DeptName)); } }
                 }
-            })
-            /*使用者列表*/
-            $("#usrid").change(function () { });
-            /*使用者*/
-            $.getJSON('<%=ResolveUrl("~/Ajax/axUserList.ashx") %>', function (d) {
-                var s = $("#usrid").setdls();
-                if (!$.isEmptyObject(d)) { for (var i in d) { s.append($("<option>", { value: d[i].使用者ID }).text(d[i].部門別 + "-" + d[i].姓名)); } }
             });
             /*新增使用者*/
             $("#btnins").click(function () { $("#dvins").show(); $("#dvtit").hide(); });
-            /*異動使用者資料*/
-            $("#btnupd").click(function () {
-                $("#btnins").click();
-            });
+            /*查詢*/
+            $("#btnselect").click(function () { $("#" + $.trim($("#txtfind").val())).click(); });
             /*取消*/
             $("#btnreset").click(function () { $("#dvins").hide(); $("#dvtit").show() });
-            /*要放到ajax所有設定共用，主要處理error*/
-            //$(document).ajaxComplete(function (event, request, settings) {
-            //    $(document.body).append(request.responseText);
-            //});
+            /*確定*/
+            $("#btnsubmit").click(function () {
+            });
         });
     </script>
 </body>

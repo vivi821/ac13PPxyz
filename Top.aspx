@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Top.aspx.cs" Inherits="Portal.Top" EnableViewState="False" EnableViewStateMac="True" %>
+
 <%@ Register Src="~/Models/JsLoad.ascx" TagPrefix="uc1" TagName="JsLoad" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,10 +9,10 @@
     <uc1:JsLoad runat="server" ID="JsLoad" />
     <link href="<%=ResolveUrl("~/css/top.css") %>" rel="stylesheet" type="text/css" />
 </head>
-<body style="background: url(/images/topbg.gif) repeat-x;">
+<body style="background: url('<%=ResolveUrl("~/images/topbg.gif") %>') repeat-x;">
     <form id="frm" name="frm" runat="server" target="_parent" action="PortalLogin.aspx">
         <div class="topleft">
-            <img alt="O'PLAY管理系統" src="images/logo.png" />
+            <img alt="O'PLAY管理系統" src="<%=ResolveUrl("~/images/logo.png") %>" />
         </div>
         <ul id="nav" class="nav">
         </ul>
