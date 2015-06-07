@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="R00000.aspx.cs" Inherits="Portal.RX.R00000" EnableViewState="False" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="R00000.aspx.cs" Inherits="Portal.RX.R00000" EnableViewState="False" EnableViewStateMac="True" %>
 
 <!DOCTYPE html>
 

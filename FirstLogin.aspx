@@ -29,27 +29,27 @@
             <asp:HiddenField ID="hidcflag" runat="server" />
             <table class="tablelist">
                 <tr>
-                    <td width="30%">使用者代號</td>
-                    <td id="tduid">
+                    <td width="30%" class="tbth">使用者代號</td>
+                    <td id="tduid" class="tbtd">
                         <asp:Literal ID="lauid" runat="server"></asp:Literal></td>
                 </tr>
                 <tr>
-                    <td width="30%">舊密碼</td>
-                    <td>
+                    <td width="30%" class="tbth">舊密碼</td>
+                    <td class="tbtd">
                         <input name="opw" id="opw" type="password" class="scinput" maxlength="10" autocomplete="off" /></td>
                 </tr>
                 <tr>
-                    <td width="30%">新密碼</td>
-                    <td>
+                    <td width="30%" class="tbth">新密碼</td>
+                    <td class="tbtd">
                         <input name="npw" id="npw" type="password" class="scinput" maxlength="10" autocomplete="off" /></td>
                 </tr>
                 <tr>
-                    <td width="30%">確認密碼</td>
-                    <td>
+                    <td width="30%" class="tbth">確認密碼</td>
+                    <td class="tbtd">
                         <input name="epw" id="epw" type="password" class="scinput" maxlength="10" autocomplete="off" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" class="tbth">
                         <div class="tipbtn">
                             <input name="" type="submit" id="btnsubmit" class="css_btn_class" value="確 定" />&nbsp;<input name="" type="reset" class="css_btn_class" value="重 設" />
                         </div>

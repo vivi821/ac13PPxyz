@@ -28,9 +28,32 @@
             if (b) { $("#divmsg").pop({ "html": "密碼不能為相同字碼!!" }); return false; }
             if (b2 || b3 || b4 || b5) { $("#divmsg").pop({ "html": "密碼不能為順序字碼!!" }); return false; }
             return true;
+        },
+        getJSONo: function (opts) {
+            if ($.isEmptyObject(opts)) { return false; }
+            var o = $.extend({}, {
+                isdebug: false,
+                success: function (d) { },
+            }, opts);
+            if ($.isArray(o.target)) { for (var i in o.target) { o.target[i].hide(); } }
+            $.getJSON(o.url, o.data, function (data, textStatus, jqXHR) {
+                o.success(data, textStatus, jqXHR);
+                if ($.isArray(o.target)) { for (var i in o.target) { o.target[i].show(); } }            
+            });
+            $(document).ajaxError(function (event, jqxhr, settings, thrownError) {
+                $(document.body).append(request.responseText);
+                //if (settings.url == "ajax/missing.html") {
+                //    $("div.log").text("Triggered ajaxError handler.");
+                //}
+            });
+            if (o.isdebug) { $(document).ajaxComplete(function (event, request, settings) { $(document.body).append(request.responseText); }); }
         }
     });
     $.fn.extend({
+        /*select 預設「請選擇」*/
+        setdls: function (opts) { return this.each(function () { $(this).html("<option value='' selected='selected'>請選擇…</option>"); }); },
+        /*select 預設「請選擇」*/
+        setdlall: function (opts) { return this.each(function () { $(this).html("<option value='' selected='selected'>全部</option>"); }); },
         /*div alert*/
         pop: function (opts) {
             return this.each(function () {
@@ -41,7 +64,8 @@
                     buttons: {
                         "關閉": function () {
                             $(this).dialog("close");
-                            if ($.isFunction(opts.afertclose)) { opts.afertclose(); }                        }
+                            if ($.isFunction(opts.afertclose)) { opts.afertclose(); }
+                        }
                     }
                 }, opts));
 
