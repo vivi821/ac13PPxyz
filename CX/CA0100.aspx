@@ -1,13 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CA0100.aspx.cs" Inherits="Portal.CX.CA0100" %>
 
+<%@ Register Src="~/Models/JsLoad.ascx" TagPrefix="uc1" TagName="JsLoad" %>
 <%@ Register Src="~/Models/uiMsg.ascx" TagPrefix="uc1" TagName="uiMsg" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!--#include file="Models/AllLoad.html"-->
-    <title>O'PLAY管理系統</title>
-    <link href="css/ext.css" rel="stylesheet" type="text/css" />
+    <title>歡迎登入O'PLAY後台管理系统</title>
+    <uc1:JsLoad runat="server" ID="JsLoad" />
 </head>
 <body>
     <form id="form1" runat="server">

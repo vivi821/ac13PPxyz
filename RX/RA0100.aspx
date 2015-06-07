@@ -4,9 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!--#include file="/Models/JsLoad.html"-->
-    <link type="text/css" href="/css/top.css" rel="stylesheet" />
     <title>O'PLAY管理系統</title>
+    <link href="<%=ResolveUrl("~/css/top.css") %>" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     <form id="frm" runat="server">

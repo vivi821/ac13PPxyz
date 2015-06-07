@@ -2,13 +2,15 @@
 
 <%@ Register Src="~/Models/uiMsg.ascx" TagPrefix="uc1" TagName="uiMsg" %>
 <%@ Register Src="~/Models/uiECode.ascx" TagPrefix="uc1" TagName="uiECode" %>
+<%@ Register Src="~/Models/JsLoad.ascx" TagPrefix="uc1" TagName="JsLoad" %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="/css/FirstLogin.css" rel="stylesheet" type="text/css" />
     <title>歡迎登入O'PLAY後台管理系统</title>
-    <!--#include file="/Models/AllLoad.html"-->
+    <uc1:JsLoad runat="server" ID="JsLoad" />
+    <link href="<%=ResolveUrl("~/css/FirstLogin.css") %>" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="topAll">

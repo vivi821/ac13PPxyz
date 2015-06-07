@@ -8,9 +8,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <uc1:JsLoad runat="server" id="JsLoad" />
-    <link href="<%=ResolveUrl("~/css/login.css") %>"" rel="stylesheet" type="text/css" />
-    <title>歡迎登入O'PLAY後台管理系统</title>    
+    <uc1:JsLoad runat="server" ID="JsLoad" />
+    <link href="<%=ResolveUrl("~/css/login.css") %>" rel="stylesheet" type="text/css" />
+    <title>歡迎登入O'PLAY後台管理系统</title>
 </head>
 <body>
     <div class="main">

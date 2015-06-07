@@ -1,12 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Top.aspx.cs" Inherits="Portal.Top" EnableViewState="False" EnableViewStateMac="True" %>
-
+<%@ Register Src="~/Models/JsLoad.ascx" TagPrefix="uc1" TagName="JsLoad" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!--#include file="/Models/JsLoad.html"-->
-    <link href="css/top.css" rel="stylesheet" type="text/css" />
-    <title>O'PLAY管理系統</title>
+    <title>歡迎登入O'PLAY後台管理系统</title>
+    <uc1:JsLoad runat="server" ID="JsLoad" />
+    <link href="<%=ResolveUrl("~/css/top.css") %>" rel="stylesheet" type="text/css" />
 </head>
 <body style="background: url(/images/topbg.gif) repeat-x;">
     <form id="frm" name="frm" runat="server" target="_parent" action="PortalLogin.aspx">
@@ -32,7 +32,6 @@
         </div>
     </form>
     <form id="frms" name="frms" target="rightFrame" action="/">
-
     </form>
     <script type="text/javascript">
         $(window).load(function () {
@@ -53,7 +52,7 @@
                                     nav.find("a").removeClass();
                                     t.addClass("selected");
                                     $("#hidsubmit").val(t[0].id);
-                                    $("#frm").prop("target", "leftFrame").prop("action", "Left.aspx").submit();                                   
+                                    $("#frm").prop("target", "leftFrame").prop("action", "Left.aspx").submit();
                                 }
                             })));
                     }

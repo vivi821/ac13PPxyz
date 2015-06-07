@@ -1,12 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Left.aspx.cs" Inherits="Portal.Left" EnableViewState="False" EnableViewStateMac="True" %>
 
+<%@ Register Src="~/Models/JsLoad.ascx" TagPrefix="uc1" TagName="JsLoad" %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>O'PLAY管理系統</title>
-    <!--#include file="/Models/JsLoad.html"-->
-    <link href="/css/left.css" rel="stylesheet"  type="text/css"/>
+    <title>歡迎登入O'PLAY後台管理系统</title>
+    <uc1:jsload runat="server" id="JsLoad" />
+    <link href="<%=ResolveUrl("~/css/left.css") %>" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="frm" runat="server">
