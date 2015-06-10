@@ -1,0 +1,28 @@
+﻿div {
+    width: 100%;
+    white-space: nowrap;
+}
+
+.dvtit * {
+    margin-left: 10px;
+}
+
+.dvtit input[type=text] {
+    margin-left: 5px;
+}
+
+.r {
+    text-align: right;
+}
+
+.c {
+    text-align: center;
+}
+
+.l {
+    text-align: left;
+}
+
+.n {
+    white-space: nowrap;
+}
