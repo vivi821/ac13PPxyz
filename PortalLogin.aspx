@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" EnableViewState="false" CodeBehind="PortalLogin.aspx.cs" Inherits="Portal.PortalLogin1" EnableViewStateMac="True" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PortalLogin.aspx.cs" Inherits="Portal.PortalLogin1" EnableViewStateMac="True" %>
 
 <%@ Register Src="~/Models/uiMsg.ascx" TagPrefix="uc1" TagName="uiMsg" %>
 <%@ Register Src="~/Models/uiECode.ascx" TagPrefix="uc1" TagName="uiECode" %>

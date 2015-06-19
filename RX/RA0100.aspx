@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>O'PLAY管理系統</title>
     <link href="<%=ResolveUrl("~/css/top.css") %>" rel="stylesheet" type="text/css" />
-
 </head>
 <body>
     <form id="frm" runat="server">

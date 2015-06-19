@@ -42,6 +42,9 @@
             }, opts);
             if ($.isArray(o.target)) { for (var i in o.target) { o.target[i].hide(); } }
             $.getJSON(o.url, o.data, function (data, textStatus, jqXHR) {
+                /*移除資料的狀態聲明*/
+                var re = ["cflag", "Infoflag", "cDesp"];
+                for (var i in data) { for (var x in re) { $(data[i]).removeProp(re[x]); } }
                 o.success(data, textStatus, jqXHR);
                 if ($.isArray(o.target)) { for (var i in o.target) { o.target[i].show(); } }
             })

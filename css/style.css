@@ -1,0 +1,136 @@
+﻿@charset "utf-8";
+
+* {
+    font-size: 9pt;
+    border: 0;
+    margin: 0;
+    line-height: 30px;
+    padding: 0;
+    color: #3C3C3C;
+}
+
+body {
+    margin: 0 auto;
+    color: #3C3C3C;
+    background: #F9F9F9;
+}
+
+/*select*/
+select {
+    padding: 0px 0px 0px 2px;
+    height: 30px;
+    line-height: 30px;
+    border-top: solid 1px #a7b5bc;
+    border-left: solid 1px #a7b5bc;
+    border-right: solid 1px #ced9df;
+    border-bottom: solid 1px #ced9df;
+    background-color: #FFFFFF;
+    background: url('images/inputbg.gif') repeat-x;
+    text-indent: 10px;
+    margin-left: 10px;
+}
+
+input {
+    margin: 5px;
+}
+
+    /*按鍵*/
+    input[type=button], input[type=reset], input[type=submit] {
+        height: 32px;
+        background-color: #4C99AF;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        padding: 0px 15px;
+        cursor: pointer;
+        border-radius: 3px;
+        margin-left: 10px;
+    }
+
+    /*輸入*/
+    input[type=password], input[type=email], input[type=text] {
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        border-top: solid 1px #a7b5bc;
+        border-left: solid 1px #a7b5bc;
+        border-right: solid 1px #ced9df;
+        border-bottom: solid 1px #ced9df;
+        background-color: #FFFFFF;
+        background: url('images/inputbg.gif') repeat-x;
+        text-indent: 10px;
+    }
+
+/*位置*/
+.place {
+    height: 30px;
+    background-color: #C9E3ED;
+}
+
+    .place span {
+        line-height: 30px;
+        font-weight: bold;
+        float: left;
+        margin-left: 12px;
+    }
+
+/*全部的table*/
+table {
+    border-collapse: collapse;
+    width: 96%;
+    border: 1px solid #B2B2B2;
+    margin: 18px;
+}
+
+td, th {
+    border: solid 1px #b6cad2;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+/*輸入資料的table*/
+.inputTable td {
+    background-color: #E5F1F4;
+}
+.inputTable th{
+    text-align:right;
+}
+
+.inputTable td:last-child{
+    background-color:#fff;
+    padding:10px;
+}
+
+/*查詢資料的table*/
+.listTable th, .listTable td {
+    padding: .1em;
+}
+.listTable th{
+    text-align:center;
+}
+.listTable td {
+    background-color: #E5F1F4;
+    padding-right:10px;
+    padding-left:10px;
+}
+
+/*查詢、輸入資料*/
+.inputTable th,.listTable th {
+    background-color: #328aa4;
+    color: #fff;
+}
+
+.selectdv {
+    padding-left: 18px;
+}
+
+    .selectdv table, .selectdv th, .selectdv td {
+        width: auto;
+        margin-left: 0;
+        border-width: 0;
+    }
+
+        .selectdv table th {
+            padding: 5px 5px 5px 0;
+            text-align: right;
+        }

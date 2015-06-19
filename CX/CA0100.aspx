@@ -8,38 +8,54 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>歡迎登入O'PLAY後台管理系统</title>
     <uc1:JsLoad runat="server" ID="JsLoad" />
+    <link href="<%=ResolveUrl("~/css/style.css") %>" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div id="dvtit" class="dvtit">
-        <span>使用者ID者：</span><input id="txtfind" type="text" size="11" maxlength="10" autocomplete="off" /><select id="usrid"></select><input type="button" value="查 詢" id="btnselect" />
-        <br />
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li>使用者設定</li>
+        </ul>
+    </div>
+    <div id="dvtit" class="selectdv">
+        <table>
+            <tr>
+                <th>使用者ID者：</th>
+                <td>
+                    <input id="txtfind" type="text" size="11" maxlength="10" autocomplete="off" /><select id="usrid"></select><input type="button" value="查 詢" id="btnselect" /></td>
+            </tr>
+        </table>
     </div>
     <form id="frm" runat="server">
-        <%if (a){ %>
+        <%
+            if (a)
+            {
+        %>
         <input type="button" value="新增使用者" id="btnins" />
         <input type="hidden" value="0" id="hidins" name="hidins" />
+        <input type="hidden" name="no" id="no" />
         <div id="dvins" style="display: none;">
             <uc1:uiMsg runat="server" ID="uiMsg" />
-            <table>
+            <table class="inputTable">
                 <tr>
-                    <td>使用者ID者：</td>
+                    <th>使用者ID者：</th>
                     <td>
                         <input type="text" name="uid" id="uid" size="10" maxlength="10" autocomplete="off" /></td>
-                    <td>姓名：</td>
+                    <th>姓名：</th>
                     <td>
                         <input type="text" name="name" id="name" size="20" maxlength="20" autocomplete="off" /></td>
-                    <td>部門別：</td>
+                    <th>部門別：</th>
                     <td>
                         <select id="deptid" name="deptid"></select></td>
                 </tr>
                 <tr>
-                    <td>密碼：</td>
+                    <th>密碼：</th>
                     <td>
                         <input type="password" name="pwd" id="pwd" size="10" maxlength="10" autocomplete="off" /></td>
-                    <td>Email：</td>
+                    <th>Email：</th>
                     <td>
                         <input type="text" name="email" id="email" size="50" maxlength="50" autocomplete="off" /></td>
-                    <td>啟用：</td>
+                    <th>啟用：</th>
                     <td>
                         <select id="opencode" name="opencode">
                             <option value="1" selected="selected">正常</option>
@@ -48,32 +64,32 @@
                         </select></td>
                 </tr>
                 <tr>
-                    <td colspan="6">
+                    <td colspan="6" style="text-align: center">
                         <input type="button" value="確 定" id="btnsubmit" />
                         <input type="reset" value="取 消" id="btnreset" /></td>
                 </tr>
             </table>
-             <%} %>
+            <%
+            }
+            %>
         </div>
     </form>
-    <div>
-        <table id="tblist" style="display: none;">
-            <tr>
-                <th>序號</th>
-                <th>使用者ID</th>
-                <th>姓名</th>
-                <th>部門別</th>
-                <th>Email</th>
-                <th>啟用</th>
-                <th>密碼變更時間</th>
-                <th>錯誤次數</th>
-                <th>登入次數</th>
-                <th>最後登入時間</th>
-                <th>代理人ID</th>
-                <th>代理啟用碼</th>
-            </tr>
-        </table>
-    </div>
+    <table id="tblist" class="listTable" style="display: none;">
+        <tr>
+            <th>序號</th>
+            <th>使用者ID</th>
+            <th>姓名</th>
+            <th>部門別</th>
+            <th>Email</th>
+            <th>啟用</th>
+            <th>密碼變更時間</th>
+            <th>錯誤次數</th>
+            <th>登入次數</th>
+            <th>最後登入時間</th>
+            <th>代理人ID</th>
+            <th>代理啟用碼</th>
+        </tr>
+    </table>
     <script type="text/javascript">
         $(window).load(function () {
             /*使用者大表*/
@@ -121,7 +137,7 @@
                 success: function (d) {
                     var s = $("#usrid").setdls();
                     if (!$.isEmptyObject(d)) {
-                        for (var i in d) { s.append($("<option>", { value: d[i].使用者ID }).text(d[i].部門別 + "-" + d[i].姓名)); }
+                        for (var i in d) { s.append($("<option>", { value: d[i].使用者ID }).text(d[i].部門別 + "-" + d[i].使用者ID + "-" + d[i].姓名)); }
                         s.change(function () { $("#txtfind").val($(this).find("option:selected").val()); });
                     }
                 }
@@ -145,12 +161,12 @@
             /*取消*/
             $("#btnreset").click(function () { $("#dvins").hide(); $("#dvtit,#btnins").show() });
             /*確定*/
-            $("#btnsubmit").click(function () {                
+            $("#btnsubmit").click(function () {
                 if ($("#deptid option:selected").val() == "") { $("#divmsg").pop({ "html": "請選擇「部門別」!" }); return false; }
                 if ($("#dvins input:text").filter(function (i) { return $.trim($(this).val()) == ""; }).length) { $("#divmsg").pop({ "html": "除密碼外，資料不可空白!" }); return false; }
-                if ( !$("#usrid option[value="+$.trim($("#uid").val())+"]").length) {
+                if (!$("#usrid option[value=" + $.trim($("#uid").val()) + "]").length) {
                     if ($.trim($("#pwd").val()) == "") { $("#divmsg").pop({ "html": "新增帳號時，密碼不可空白!" }); return false; }
-                }                
+                }
                 $(this).working();
                 $("#frm").submit();
             }).enter();
